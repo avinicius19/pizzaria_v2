@@ -33,6 +33,10 @@
   .brand small { display: block; font-family: var(--font-sans); font-size: 8px; letter-spacing: 2.5px; margin-top: 8px; text-align: center; }
   .navigation { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 600; }
   .navigation > a:not(.button):hover { color: var(--color-orange); }
+  .header-socials { display: flex; align-items: center; gap: 4px; }
+  .header-socials a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: var(--color-forest); transition: color .2s, background .2s; }
+  .header-socials a:hover { color: var(--color-orange); background: #2446380d; }
+  .header-socials svg { width: 20px; height: 20px; }
   .button { display: inline-flex; align-items: center; justify-content: center; gap: 15px; background: var(--color-forest); color: white; padding: 18px 24px; border-radius: 5px; font-size: 13px; font-weight: 500; transition: background .2s, transform .2s; }
   .button:hover { background: #35614d; transform: translateY(-2px); }
   .button svg { font-size: 19px; }
@@ -167,6 +171,12 @@ main:focus { outline: none; }
   .hero-visual { height: 490px; }
   .about-grid, .location-grid { gap: 50px; }
   .navigation { gap: 16px; }
+}
+@media (max-width: 960px) {
+  .menu-toggle { display: block; }
+  .navigation { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--color-cream); padding: 24px; box-shadow: 0 15px 20px #24463814; align-items: stretch; }
+  .navigation.is-open { display: flex; flex-direction: column; }
+  .navigation > a { padding: 12px; }
 }
 @media (max-width: 760px) {
   html { scroll-padding-top: 25px; }

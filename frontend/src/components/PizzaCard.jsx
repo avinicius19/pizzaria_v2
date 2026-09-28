@@ -2,6 +2,7 @@ const currency = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: '
 const sizeOrder = ['Broto', 'Média', 'Grande', 'Gigante']
 const normalize = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase()
 
+/* usa os nomes de sizeOrder como referência para encontrar o tamanho correspondente nos dados que vieram do banco e, a partir dele, pegar fatias e preco_base. */
 function SizePrice({ name, tamanhos }) {
   const size = tamanhos.find(item => normalize(item.nome) === normalize(name))
   const rawPrice = size?.preco_base

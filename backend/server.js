@@ -33,10 +33,10 @@ app.get('/pizzas', (req, res) => {
 })
 
 app.get('/tamanhos', (req, res) => {
-    db.query('SELECT tamanhos.nome, tamanhos.fatias, tamanhos.preco_base FROM tamanhos', (error,results) =>{
-        if(error){
+    db.query('SELECT tamanhos.nome, tamanhos.fatias, tamanhos.preco_base FROM tamanhos', (error, results) => {
+        if (error) {
             return res.status(500).json({
-                error:'Error ao retornar dados.'
+                error: 'Error ao retornar dados.'
             })
         }
 
@@ -44,7 +44,16 @@ app.get('/tamanhos', (req, res) => {
     })
 })
 
-
+app.get('/promocoes', (req, res) => {
+    db.query('SELECT promocoes.id, promocoes.titulo, promocoes.descricao,promocoes.dia_semana, promocoes.preco,promocoes.imagem_url FROM promocoes WHERE ativo = 1', (error, results) => {
+        if (error) {
+            return res.status(500).json({
+                error: 'Erro ao retornar promoções'
+            })
+        }
+        res.json(results)
+    })
+})
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');

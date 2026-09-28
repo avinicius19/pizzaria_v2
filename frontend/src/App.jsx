@@ -5,11 +5,12 @@ import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom'
 import LocationPage from './pages/LocationPage'
 import Cardapio from './pages/Cardapio'
+import { Promocoes } from './pages/Promocoes'
 
 function RouteNavigation() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
-    document.title = pathname === '/cardapio' ? 'Cardápio | Forno & Farina' : pathname === '/localizacao' ? 'Localização | Forno & Farina' : 'Forno & Farina | Feita para compartilhar'
+    document.title = pathname === '/promocoes' ? 'Promoções | Forno & Farina' : pathname === '/cardapio' ? 'Cardápio | Forno & Farina' : pathname === '/localizacao' ? 'Localização | Forno & Farina' : 'Forno & Farina | Feita para compartilhar'
     const frame = requestAnimationFrame(() => {
       if (hash) document.getElementById(hash.slice(1))?.scrollIntoView()
       else {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/localizacao" element={<LocationPage />} />
         <Route path="/cardapio" element={<Cardapio />} />
+        <Route path="/promocoes" element={<Promocoes />} />
         <Route path="*" element={
           <main id="conteudo" tabIndex={-1} className="site-container section">
             <h1 className="location-heading">Página não encontrada</h1>
